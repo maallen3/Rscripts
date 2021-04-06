@@ -1,0 +1,9 @@
+bamfile	technique	person	tempature	genotype	replicate	label	group
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/191203_Cardiello_Dowell-998/bams/EricControl_S3_R1_001.sorted.bam	PRO	Eric	thirtyseven	D21	R1	Eric_D21_thirtyseven_R1	D21_thirtyseven
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/191203_Cardiello_Dowell-998/bams/EricHS_S4_R1_001.sorted.bam	PRO	Eric	fourtytwo	D21	R1	Eric_D21_fourtytwo_R1	D21_fourtytwo
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/191203_Cardiello_Dowell-998/bams/EthanControl_S1_R1_001.sorted.bam	PRO	Ethan	thirtyseven	T21	R1	Ethan_T21_thirtyseven_R1	T21_thirtyseven
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/191203_Cardiello_Dowell-998/bams/EthanHS_S2_R1_001.sorted.bam	PRO	Ethan	fourtytwo	T21	R1	Ethan_T21_fourtytwo_R1	T21_fourtytwo
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/200626_Cardiello_Dowell_1099_1100/bams/Eric_Contrrol_S1_R1_001.sorted.bam	PRO	Eric	thirtyseven	D21	R2	Eric_D21_thirtyseven_R2	D21_thirtyseven
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/200626_Cardiello_Dowell_1099_1100/bams/Eric_HS_S2_R1_001.sorted.bam	PRO	Eric	fourtytwo	D21	R2	Eric_D21_fourtytwo_R2	D21_fourtytwo
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/200626_Cardiello_Dowell_1099_1100/bams/Ethan_Contol_S3_R1_001.sorted.bam	PRO	Ethan	thirtyseven	T21	R2	Ethan_T21_thirtyseven_R2	T21_thirtyseven
+/scratch/Shares/dowell/joecardiello/FilesForMary/Heatshock/ATAC_PRO_Bams/200626_Cardiello_Dowell_1099_1100/bams/Ethan_HS_S4_R1_001.sorted.bam	PRO	Ethan	fourtytwo	T21	R2	Ethan_T21_fourtytwo_R2	T21_fourtytwo
