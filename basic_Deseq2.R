@@ -1,3 +1,8 @@
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
+#BiocManager::install("DESeq2")
+library("DESeq2")
+
 
 #set indirectory outdirectory and gtf
 indir <- "/Shares/down/heatshock/analysis/PROseq/genedeseq2/"

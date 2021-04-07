@@ -1,3 +1,11 @@
+#install.packages("remotes")
+#remotes::install_github("lpantano/DEGreport")
+#if (!requireNamespace("BiocManager", quietly = TRUE))
+#  install.packages("BiocManager")
+#BiocManager::install("DESeq2")
+
+library("DESeq2")
+library("DEGreport")
 
 #set indirectory outdirectory and gtf
 indir <- "/Shares/down/heatshock/analysis/PROseq/genedeseq2/"
