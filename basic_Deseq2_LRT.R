@@ -102,7 +102,7 @@ for (i in unique(cluster_groups$cluster)){
   normcounts_group <- as.matrix(normcounts_group)
   title = paste0("cluster", i, sep=" ")
   heatmap(normcounts_group,Colv = NA, main=title)}
-
+  
 
 #jpeg(paste0(outdir,outfilename,"/",'cluster',i,'.jpg', sep=""))
 #dev.off()

@@ -45,3 +45,32 @@ dds <- nbinomWaldTest(dds) #adds both H and cooks to assays(dds)  both are for e
 #SE_Intercept (SE stands for standard error)  and SE for every thing they expect you to compare. 
 #Wald static for what they expect you to compare. 
 #betaConv  betaIter         deviance  maxCooks
+
+
+
+# design
+
+Lets say you have two genotypes (D21 and T21)
+And one treatment (tempature)
+
+
+to get effect of treatment in each group seperately
+
+dds$group <- factor(paste0(dds$genotype, "_", dds$treatment))
+
+if design = ~group
+and
+res = (dds, contrast("group", "D21_thirtyseven", "D21_fourtytwo")
+you get the difference caused by the treatment in the D21 
+res = (dds, contrast("group", "T21_thirtyseven", "T21_fourtytwo")
+you get the difference caused by the treatment in the T21
+
+
+If you only want the common features of the treatment (regardless of where the gene started in genotype 1 and 2)
+design = ~genotype+treatment
+
+if you want the effect of the treatment on the first level of genotype with the realtive responce of the other levels of genotype
+~genotype + condition+genotype:condition
+
+
+
