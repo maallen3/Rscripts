@@ -16,7 +16,7 @@ head(metadata)
 countdat <- coveragetable[,colnames(coveragetable) %in% metadata$label]
 
 #set up the deseq object
-dds <- DESeqDataSetFromMatrix(countData = countdat, colData = metadata, design = ~group)
+dds <- DESeqDataSetFromMatrix(countData = countdat, colData = metadata, design = ~replicate+group)
 
 #run deseq
 DEdds <- DESeq(dds)
@@ -24,8 +24,6 @@ DEdds <- DESeq(dds)
 #Check the size factors
 sizeFactors(DEdds) #this should be pretty simlilar to ratios in the millions mapped. CHECK IT!
 
-
-#these two graphs show you before and after normalization of samples. In this data set that doesn't matter. In some it does.
 allcounts <- as.data.frame(counts(DEdds))
 allcountslong <- allcounts %>% gather(key = "sample", value = "signal")
 ggplot(allcountslong, aes(x = sample, y = signal))+ geom_violin(trim = FALSE) + theme(axis.text.x = element_text(angle = 90))+scale_y_continuous(trans='log2')
@@ -37,21 +35,27 @@ ggplot(normcountslong, aes(x = sample, y = signal))+ geom_violin(trim = FALSE) +
 #plot the dispersion of the data
 plotDispEsts(DEdds)
 
-#get the results dataframes from comparing two samples 
-#my samples are D21_fourtytwo D21_thirtyseven T21_fourtytwo T21_thirtyseven
-#Then save the results file
-sample1="D21_thirtyseven"
-sample2="D21_fourtytwo"
-res=results(DEdds, contrast=c("group",sample1,sample2))
+#get the results dataframes (which was not )
+
 fileroot = "featureCounts_attr_gene_id_feature_exon_125256"
-write.csv(res, paste(outdir,fileroot,"_",sample1, "_",sample2,".results.csv", sep=""))
+
+resD21_37vs42 <- results(DEdds, contrast=c("group","D21_thirtyseven","D21_fourtytwo"))
+write.csv(res, paste(outdir, fileroot,"_","D21_thirtyseven", "_","D21_fourtytwo",".batchcorrection.results.csv", sep=""))
+resT21_37vs42 <- results(DEdds, contrast=c("group","T21_thirtyseven","T21_fourtytwo"))
+write.csv(res, paste(outdir, fileroot,"_","T21_thirtyseven", "_","T21_fourtytwo",".batchcorrection.results.csv", sep=""))
+res37_D21vsT21 <- results(DEdds, contrast=c("group","D21_thirtyseven","T21_thirtyseven"))
+write.csv(res, paste(outdir, fileroot,"_","D21_thirtyseven", "_","T21_thirtyseven",".batchcorrection.results.csv", sep=""))
+res42_D21vsT21 <- results(DEdds, contrast=c("group","D21_fourtytwo","T21_fourtytwo"))
+write.csv(res, paste(outdir, fileroot,"_","D21_fourtytwo", "_","T21_fourtytwo",".batchcorrection.results.csv", sep=""))
 
 
-#look at the results
+#look at and output the results of one comparison
+res = resT21_37vs42
 summary(res)
 plotMA(res)
 resSig <- subset(res, padj < 0.01)
 head(res[ order( res$padj ), ])
 
 #plot one gene
-plotCounts(DEdds, gene="HSPH1", intgroup=c( "group"))
+plotCounts(DEdds, gene="FER1L5", intgroup=c( "group"))
+
