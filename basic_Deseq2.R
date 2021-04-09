@@ -18,7 +18,8 @@ metadata <- read.csv("/Users/allenma/scripts/Rscripts/Rscripts/PROmeta.txt", hea
 head(metadata)
 
 #make sure they are in the same order and have the same samples!!!!!
-countdat <- coveragetable[,colnames(coveragetable) %in% metadata$label]
+head(metadata)
+countdat <- coveragetable %>% select(as.vector(metadata$label))
 
 #set up the deseq object
 dds <- DESeqDataSetFromMatrix(countData = countdat, colData = metadata, design = ~group)

@@ -21,7 +21,7 @@ metadata <- read.csv("/Users/allenma/scripts/Rscripts/Rscripts/PROmeta.txt", hea
 head(metadata)
 
 #make sure they are in the same order and have the same samples!!!!!
-countdat <- coveragetable[,colnames(coveragetable) %in% metadata$label]
+countdat <- coveragetable %>% select(as.vector(metadata$label))
 
 #set up the deseq object
 dds <- DESeqDataSetFromMatrix(countData = countdat, colData = metadata, design = ~replicate+group)
@@ -47,7 +47,6 @@ plotDispEsts(DEdds)
 #get the results dataframes (which was not )
 res_LRT <- results(DEdds)
 
-fileroot = "featureCounts_attr_gene_id_feature_exon_125256"
 #look at and output the results of one comparison
 res = res_LRT
 summary(res)
