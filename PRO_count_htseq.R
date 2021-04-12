@@ -8,7 +8,7 @@ library("Rsubread")
 outdir="/Shares/down/heatshock/analysis/PROseq/genedeseq3/"
 #annot_file <- "/scratch/Shares/public/genomes/Homo_sapiens/UCSC/hg38/Annotation/Genes/genes.gtf"
 #annot_file <-"/Users/allenma/RUNX1grant/body.saf"
-annot_file <-"/scratch/Shares/dowell/genomes/hg38/PROparts_genenames/tss.saf"
+annot_file <-"/scratch/Shares/dowell/genomes/hg38/PROparts_genenames/body.saf"
 
 
 #Make a list of your bam files. 
@@ -37,8 +37,8 @@ time
 #save.image(paste0(outdir, "nextflowhoeffermm10_072920a_and_b_res_featureCounts_", GTFattrType, "full", "_", time, ".RData"))
 
 
-#fileroot<-paste0(outdir, "featureCounts_body_", time)
-fileroot<-paste0(outdir, "featureCounts_tss_", time)
+fileroot<-paste0(outdir, "featureCounts_body_", time)
+#fileroot<-paste0(outdir, "featureCounts_tss_", time)
 
 save.image(paste0(fileroot, ".RData"))
 
