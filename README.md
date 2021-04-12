@@ -81,7 +81,9 @@ If you only want the common features of the treatment (regardless of where the g
 design = ~genotype+treatment
 
 if you want the effect of the treatment on the first level of genotype with the realtive responce of the other levels of genotype
-~genotype + condition+genotype:condition
+~genotype + treatment+genotype:treatment
+
+![Comparison of design](https://github.com/maallen3/Rscripts/blob/main/compare_design.png)
 
 
 
