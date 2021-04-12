@@ -83,6 +83,10 @@ design = ~genotype+treatment
 if you want the effect of the treatment on the first level of genotype with the realtive responce of the other levels of genotype
 ~genotype + treatment+genotype:treatment
 
+If you compare ~treatment to ~genotype+treatment, in the example below you should see that there are several new genes seen as differental becuase they start at different levels in D21 and T21 samples. 
+
+However, becase this data set has only 2 replicates for each of the 4 samples, tthere are "more" genes called as differenal in the tempature only version of the desgin. This is becuase in that design we are comparing 4 samples to 4 samples. In the ~genotype+treatment design we are compaing 2x2x2x2. 
+
 ![Comparison of design](https://github.com/maallen3/Rscripts/blob/main/compare_design.png)
 
 
