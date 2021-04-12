@@ -2,7 +2,10 @@
 #  install.packages("BiocManager")
 #BiocManager::install("DESeq2")
 library("DESeq2")
-
+library("dplyr")
+library("ggplot2")
+library("DEGreport")
+library("pheatmap")
 
 #set indirectory outdirectory and gtf
 indir <- "/Shares/down/heatshock/analysis/PROseq/genedeseq3/"
@@ -164,8 +167,8 @@ ggplot(df, aes(x=baseMean.T21, y=log2FoldChange.T21, color=cat))+geom_point()+sc
 df %>% group_by(cat) %>% summarize(count=n()) 
 
 #Why?
-hist(df_sig$padj.T21, breaks=100)
-hist(df_sig$padj.D21, breaks=100)
+hist(df_sig_either$padj.T21, breaks=100)
+hist(df_sig_either$padj.D21, breaks=100)
 
 
 #plot of the fold change in D21 vs. T21 for genes that change in both, or just one of the two
@@ -252,8 +255,11 @@ for (i in unique(cluster_groups$cluster)){
   group <- clusters$df %>% filter(cluster == i)
   normcounts_group <- normcounts[rownames(normcounts) %in% noquote(group$genes),]
   normcounts_group <- as.matrix(normcounts_group)
-  title = paste0("Design only with temp cluster", i, sep=" ")
-  heatmap(normcounts_group,Colv = NA, main=title)}
+  title = paste0("Gene expression as z-score\n, Design only with temp cluster", i, sep=" ")
+  heatmap(normcounts_group,Colv = NA, main=title)
+  title = paste0("Gene expression in rlog\n, Design only with temp cluster", i, sep=" ")
+  cluster_rlog_group <- cluster_rlog[rownames(cluster_rlog) %in% noquote(group$genes),]
+  pheatmap(cluster_rlog_group,cluster_cols = FALSE,main = title)}
 
 
 
@@ -274,8 +280,9 @@ for (i in unique(cluster_groups$cluster)){
   normcounts_group <- normcounts[rownames(normcounts) %in% noquote(group$genes),]
   normcounts_group <- as.matrix(normcounts_group)
   title = paste0("Design with temp and genotype cluster", i, sep=" ")
-  heatmap(normcounts_group,Colv = NA, main=title)}
-
+  heatmap(normcounts_group,Colv = NA, main=title)
+  pheatmap(normcounts_group,cluster_cols = FALSE)}
+  
 
 
 
