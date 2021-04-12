@@ -83,7 +83,7 @@ design = ~genotype+treatment
 if you want the effect of the treatment on the first level of genotype with the realtive responce of the other levels of genotype
 ~genotype + treatment+genotype:treatment
 
-![Comparison of design](https://github.com/maallen3/Rscript/blob/main/compare_design.png)
+![Comparison of design](https://github.com/maallen3/Rscripts/blob/main/compare_design.png)
 
 
 
