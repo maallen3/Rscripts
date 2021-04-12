@@ -19,17 +19,21 @@ basic_Deseq2_withbatcheffects.R #adds batch effects to the design
 In order to run the scripts you will need the Deseq2 library. 
 
 You can get the file of counts used for the basic deseq scripts by 
+
+
 example:
 ```
 wget https://www.colorado.edu/lab/allen/sites/default/files/attached-files/featurecounts_attr_gene_id_feature_exon_125256.coverage.csv_.txt
+wget https://www.colorado.edu/lab/allen/sites/default/files/attached-files/featurecounts_body_153616.coverage.csv_.txt
 ```
 
-This file is a csv, so you should change the name removing the _.txt
+These files are csv, so you should change the name removing the _.txt
 
 example:
 
 ```
 mv featurecounts_attr_gene_id_feature_exon_125256.coverage.csv_.txt featurecounts_attr_gene_id_feature_exon_125256.coverage.csv
+mv featurecounts_body_153616.coverage.csv_.txt featurecounts_body_153616.coverage.csv
 ```
 # Looking under the hood
 What is 
