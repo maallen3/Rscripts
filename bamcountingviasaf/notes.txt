@@ -1,0 +1,25 @@
+
+Goal is to count the reads over peaks of some kind (likely chip or atac peaks) and do differental expression. Problem is that sometimes the peaks may be bais towards all upregulated. So we will also count the reads over all genes. Then we will do differental expression using only the genes as the contorl genes (which are used for size factors). 
+
+
+scripts
+
+1) making saf files
+	makesaf_frombed.R #saf file for peaks
+		input: bed file
+                output: saf file
+	makesaf.R #saf file for genes	
+		input: bed file
+		output: saf file
+
+2) count reads over saf file
+	countsaf.R
+	input: filelist(yanked from a metadata table), saf file from first step #check out my metadata table as an example
+	output: count(coverage) table as csv, several other tables with information about the counts (stat, annotation, targets)
+
+3) running Deseq
+	several ways of running deseq
+
+
+
+
